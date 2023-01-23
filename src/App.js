@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+
 
 function App() {
+  let farther = 0
+  const testFunc = ()=>{
+    let byeFunc = document.getElementById('bye')
+    farther+=20
+    byeFunc.style.left=farther +'px'
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div onClick={testFunc} className="w-screen h-screen bg-red-900">
+      <div className='h-24 w-24'>
+        <div id='bye' className='items relative p-20  animate-bounce'>
+          <div className='h-6 w-6 rounded-full bg-blue-500'></div>
+          <div className='h-6 w-6 rounded-full bg-yellow-500'></div>
+          <div  className='h-6 w-6 rounded-full bg-pink-500'></div>
+        </div>
+      </div>
     </div>
   );
 }
