@@ -7,6 +7,13 @@ function App() {
     farther+=20
     byeFunc.style.left=farther +'px'
   }
+  
+  
+  const newTime = () => {
+    let d = new Date();
+    document.getElementById('demo').innerHTML = d.toLocaleTimeString();
+  }
+  
 
   return (
     <div onClick={testFunc} className="w-screen h-screen bg-red-900">
@@ -17,6 +24,7 @@ function App() {
           <div  className='h-6 w-6 rounded-full bg-pink-500'></div>
         </div>
       </div>
+      <p id='demo'>{setInterval(newTime,1000)}</p>
     </div>
   );
 }
