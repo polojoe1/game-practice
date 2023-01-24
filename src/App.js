@@ -15,6 +15,7 @@ function App() {
   const newTime = () => {
     let d = new Date();
     document.getElementById('demo').innerHTML = d.toLocaleTimeString();
+    console.log(d.toLocaleTimeString()==='10:28:30 AM')
   }
   
   const fallingFunc = () => {
