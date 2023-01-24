@@ -2,6 +2,9 @@
 
 function App() {
   let farther = 0
+  let lower = 0;
+  let x=0;
+  
   const testFunc = ()=>{
     let byeFunc = document.getElementById('bye')
     farther+=20
@@ -14,7 +17,34 @@ function App() {
     document.getElementById('demo').innerHTML = d.toLocaleTimeString();
   }
   
-
+  const fallingFunc = () => {
+    
+    let purpCirc = document.getElementById('circ')
+    //console.log(purpCirc.style.top)
+    
+    const drop=()=>{
+      
+      lower+=10;
+      purpCirc.style.top = lower +'px'
+    }
+    if(purpCirc.style.top!=='500px'){
+      //console.log(purpCirc.style.top)
+    drop()
+    }
+    
+  }
+  
+  const changeColor = ()=>{
+    let purpCirc = document.getElementById('circ')
+    let colors = ['red', 'blue', 'purple','yellow','lime']
+    purpCirc.style.backgroundColor= colors[x];
+    x++;
+    if(x>=colors.length){
+      x=0;
+    }
+  }
+  setInterval(changeColor,1000)
+  setInterval(fallingFunc,30)
   return (
     <div onClick={testFunc} className="w-screen h-screen bg-red-900">
       <div className='h-24 w-24'>
@@ -25,7 +55,10 @@ function App() {
         </div>
       </div>
       <p id='demo'>{setInterval(newTime,1000)}</p>
+      <div id='circ'  className='h-10 w-10 bg-purple-400 rounded-full relative'> </div>
+      <button onClick={changeColor} className=' flex justify-center m-20 h-12 w-16 items-center rounded-sm bg-blue-400 text-white shadow-xl hover:bg-white hover:text-blue-800'> Try me</button>
     </div>
+    
   );
 }
 
